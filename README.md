@@ -1,16 +1,18 @@
 # Numerical investigation of speech-driven airflow between two people: comparison of face shields' effectiveness against airborne transmission of viruses
 ## Summary
-We use Computational Fluid Dynamics to assess the airflow between a person speaking and another person in close proximity. We consider this flow in the context of possible transmission of airborne viruses, assuming the non-speaking person is wearing a face shield. Once confident our modelling accurately reflects reality, we then propose a potentially improved shield design, and assess it's effectiveness as compared to the former product.
+We use Computational Fluid Dynamics to assess the airflow between a person speaking and another person in close proximity. We consider this flow in the context of possible transmission of airborne viruses, assuming the non-speaking person is wearing a commercially-available face shield. Once confident our modelling accurately reflects reality, we then propose a potentially improved shield design, and assess it's effectiveness as compared to the former product.
 
 ## Impact
 As relatively severe negative health impacts from having COVID have been documented in certain cases, such as 'long COVID', we believe such investigations as ours - seeking effective preventative measures for higher-risk cases - is reason enough given the financial impact on the sufferer from these conditions.
 
 ## Introduction
-The spread of COVID is likely dominated by airborne transmission [1], thus we aim to investigate the fluid dynamics [2] of an interaction between two people in higher-risk settings such as when speaking in low-velocity surrounding airflow environments (such as potentially indoors).
+The spread of COVID is likely dominated by airborne transmission [1], thus we aim to investigate the fluid dynamics of an interaction between two people in higher-risk settings such as when speaking in low-velocity surrounding airflow environments (such as potentially indoors).
 
 As indoor environments such as schools, universities, and offices are normally associated with significant levels of speaking (usually within closer proximity to another person than if they were just breathing), we will concentrate on exhalation of air from the mouth [F1].
 
-The fluid dynamics of airflow involved, where one person is assumed to have a virus, comprises a combination of likely turbulent jet flow and potentially two-phase flow. A turbulent jet normally appears emanating from the person speaking, which is carried forwards [3]. Droplets, also present in speaking, tend to fall towards the ground at increasingly shorter distances for higher sizes, while increasingly smaller-sized ones tend to follow the airflow pattern more closely.
+The fluid dynamics of airflow involved, where one person is assumed to have a virus, comprises a combination of likely turbulent jet flow and potentially two-phase flow [2]. A turbulent jet normally appears emanating from the person speaking, which is carried forwards. Droplets containing the virus, also present in speaking, tend to fall towards the ground at increasingly shorter distances for higher sizes, while increasingly smaller-sized ones tend to follow the airflow pattern more closely.
+
+Adding complexity to the overall jet is the variation in flow out of the mouth due to differing sounds of speech [3]. Further, plosive sounds (e.g. 'k' & 'p' sounds) create vortex ring-like structures that mostly retain their momentum and hence propagate further downstream (as compared to non-plosive types) which also interacts with more-diffused jet created by non-plosive sounds.
 
 If a face mask is worn by the infected person while speaking the overall jet momentum may be reduced, however the breakup of droplets may cause the other person to inhale more of the virus, due to the smaller droplet sizes (which reach further than droplets). If a face shield is worn by the infected person the transmission of particles (representing a virus) to the other person has been shown to be decreased [4].
 
@@ -27,13 +29,13 @@ Our investigation will include varying variables of interest including:
 These scenarios will both be investigated with the assumption that the person not speaking will be inhaling at their maximum volumetric rate, and inhaling fully thru their nose. The distance from person-to-person will be assumed to be a constant of 0.75 [m]. The speaking person's jet characteristics will be idealised, based on experimental data [5]. The face shield's dimensional characteristics will be averaged from common, commercially-available products [F2].
 
 ## Methodology
-Computational Fluid Dynamics (CFD) will be used to conduct a number of numerical experiments where various parameters are varied. To achieve this within an adequate timeframe the OpenFOAM software will be used to run numerous, parallel simulations on cloud-based infrastructure.
+Computational Fluid Dynamics (CFD) will be used to conduct a number of numerical experiments where various parameters are varied. To achieve this within an adequate timeframe the OpenFOAM software will be used to run numerous, parallel CFD simulations on cloud-based infrastructure.
 
-This finite-volume approach will include turbulence modelling of the airflow created due to speaking, which includes appropriate modelling of flow around the shield towards the nose of the person assumed to be inhaling the virus. The person inhaling will be represented as a simplified geometry, created & generously released by [Atharva Wagh](https://grabcad.com/atharva.wagh-1).
+This finite-volume CFD approach will include turbulence modelling of the airflow created due to speaking, which includes appropriate modelling of flow around the shield towards the nose of the person assumed to be inhaling the virus. The person inhaling will be represented as a geometry created by [NIOSH](https://www.cdc.gov/niosh/data/datasets/rd-10130-2020-0/default.html).
 
 Due to the non-empirical experimental method employed, certain activities such as validation and verification should be also undertaken to provide confidence our numerical experiments are accurate reflections of the 'real-world', while also ensuring error introduced by the numerical methods are non-significant.
 
-Specifically our numerical results will be validated against experimental results, including airflow visualisations similar to some already experimentally investigated [9]. We will also verify the insensitivity of numerical results to differing numerically-based parameters used to generate these results.
+Specifically our numerical results will be validated against experimental results, including airflow visualisations similar to some already experimentally investigated [6]. We will also verify the insensitivity of numerical results to differing numerically-based parameters used to generate these results.
 
 ## Disclosure
 All applicable intellectual property (IP) we generate is made available under an Open COVID License (OCL). Specifically, our IP is released under their Patent and Copyright version 1.1 license. See the [OCL-PC v1.1 license](https://opencovidpledge.org/v1-1-ocl-pc/) for more specific details.
@@ -48,7 +50,7 @@ All applicable intellectual property (IP) we generate is made available under an
 6. Breathing, virus transmission, and social distancing — An experimental visualization study: https://aip.scitation.org/doi/full/10.1063/5.0045582  
 
 ## Footnotes
-1. We believe that more complex computational models taking into consideration both breathing and speaking could be warranted as areas of research & development at a later time, especially as an aid for more personalised guidance. This approach is argued as more accurate and hence more appropriate than broader policy generated by health authorities with presumed limited understanding of the fluid dynamics and the associated significant airflow variations and intricacies that can occur in public health-related settings [10].
+1. We believe that more sophisticated computational models taking into consideration both breathing and speaking could be warranted as areas of research & development at a later time, especially as an aid for more personalised guidance. This approach is argued as more accurate and hence more appropriate than broader policy generated by health authorities with presumed limited understanding of the fluid dynamics and the associated significant airflow variations and intricacies that can occur in public health-related settings [10].
 
 2. a) https://www.medcart.com.au/a/face-shields-surgical-visors/werkomed/face-shield-with-clear-visor/100041747?variant_id=114178  
 b) https://www.medcart.com.au/a/face-shields-surgical-visors/hlp-medical-supplies/act/kaleen/double-side-anti-fog-coated-face-shield-face-protection-1-shield/100043782?variant_id=117564  
